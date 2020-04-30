@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    color: #222;
+}
+
+.navbar {
+  padding: .8rem;
+}
+
+.navbar-nav li {
+  padding-right: 20px;
+}
+ 
+.nav-link {
+  font-size: 1.1em !important;
+}
+
+.logo {
+    height: 3rem;
+}
+
+.heading {
+    font-size: 2rem;
+    color: #29517d;
+}
+
+td, th {
+  white-space: nowrap;
+}
+
+th:hover {
+  background-color: #29517d; 
+  color: white;
+}
+
+.jamesTable {
+  max-height: 80vh;
+  overflow-y: scroll;
+}
+
+.findAll {
+  width: 100%;
+}
+
+#editDelete {
+  border-collapse: collapse;
+  padding: 0 !important; 
+  margin: 0 !important;
+}
+
+#editDelete td {
+  padding-top: 0px !important; 
+  padding-left: 3rem;
+  padding-bottom: 0%;
+  margin: 0px !important;
+  border-radius:0px !important;
+  border-top: 0px;
+}
+
+#updateForm {
+  display: none;
+}
+
+.padding {
+  padding: .5rem;
+}
+
+.actiontabs {
+  font-size: smaller;
+}
+
+/*.navtabs {
+  padding: 0px;
+}*/
+
+#nav-login-tab,
+#nav-create-tab,
+#nav-search-tab,
+#nav-update-tab,
+#nav-delete-tab {
+  font: 1em sans-serif;
+}
+
+#nav-login,
+#nav-create,
+#nav-search,
+#nav-update,
+#nav-delete {
+  padding-top: 2rem;
+}
+
+.createError {
+  font-size: x-small;
+  color: red;
+  padding-left: 1rem;
+}
+
+#searchChoice {
+  padding-bottom: 1rem;
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  #nav-login-tab,
+  #nav-create-tab,
+  #nav-search-tab,
+  #nav-update-tab,
+  #nav-delete-tab {
+  padding: 6px 7px 6px 7px;
+  }
+
+}
+
+@media (max-width: 768px) {
+  
+}
+
+@media (max-width: 576px) {
+  
+}

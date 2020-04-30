@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="css/main.style.css">
+        <link rel="stylesheet" href="css/ids.style.css">
+        <link rel="stylesheet" href="css/classes.style.css">
+        <script type="text/javascript" src="js/fetch.js"></script>
+        <script type="text/javascript" src="js/fetchLogin.js"></script>
+        <script type="text/javascript" src="js/valSort.js"></script>        
+        <script type="text/javascript" src="js/app.js"></script>
+        <script src = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+        <title>My Address Book</title>
+    </head>
+
+    <body>
+        <!--Navigation Bar-->
+        <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><img src="images/addressBookLogo.png" class="logo"></a><h1 class="heading">My Address Book</h1>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                     <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                         <li class="nav-item active">
+                            <a class="nav-link" href="#">Home</a>
+                         </li>
+                         <li class="nav-item">
+                             <a class="nav-link" href="#">About</a>
+                         </li>
+                         <li class="nav-item">
+                             <a class="nav-link" href="#">Services</a>
+                         </li>
+                    </ul>
+                </div>
+            </div> 
+         </nav>
+
+        <main>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-5 col-xl-4">
+                        <nav>
+                            <div class="nav nav-tabs  actiontabs" id="nav-tab" role="tablist">
+                              <a class="navtabs nav-item nav-link active" id="nav-login-tab" data-toggle="tab" href="#nav-login" role="tab" aria-controls="nav-login" aria-selected="true">Login</a>
+                              <a class="navtabs nav-item nav-link" id="nav-create-tab" data-toggle="tab" href="#nav-create" role="tab" aria-controls="nav-create" aria-selected="false">Add</a>
+                              <a class="navtabs nav-item nav-link" id="nav-search-tab" data-toggle="tab" href="#nav-search" role="tab" aria-controls="nav-search" aria-selected="false">Search</a>
+                              <a class="navtabs nav-item nav-link" id="nav-update-tab" data-toggle="tab" href="#nav-update" role="tab" aria-controls="nav-update" aria-selected="false">Update</a>
+                              
+                            </div>
+                          </nav>
+                          <div class="tab-content" id="nav-tabContent">
+                            <!--Login Page-->
+                            <div class="tab-pane fade show active" id="nav-login" role="tabpanel" aria-labelledby="nav-login-tab">
+                                <form>
+                                    <div class="form-group">
+                                      <label for="inputEmail3">Email</label>
+                                      <div class="col-sm-10">
+                                        <input type="email" class="form-control is-valid" id="inputEmail">
+                                      </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="inputPassword3">Password</label>
+                                      <div class="col-sm-10">
+                                        <input type="password" class="form-control is-invalid" id="inputPassword">
+                                      </div>
+                                    </div>
+                                    <div class="form-group row">
+                                      <div class="col-sm-10">
+                                        <button type="button" id="loginBtn" class="btn btn-primary">Sign in</button>
+                                      </div>
+                                    </div>
+                                    
+                                  </form>
+                            </div>
+                            <!--Create Enrty Page-->
+                            <div class="tab-pane fade" id="nav-create" role="tabpanel" aria-labelledby="nav-create-tab">
+                                <form>
+                                    <div class="form-group">
+                                      <label for="nameCreate">Name</label>
+                                      <div class="col-sm-10 col-md-12">
+                                        <input type="text" class="form-control" id="nameCreate">
+                                      </div>
+                                      <div id="nameCreateError" class="createError"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="addressCreate">Address</label>
+                                        <div class="col-sm-10 col-md-12">
+                                            <input type="text" class="form-control" id="addressCreate">
+                                        </div>
+                                        <div id="addressCreateError" class="col-sm-10 col-md-12 createError"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phoneCreate">Phone</label>
+                                        <div class="col-sm-10 col-md-12">    
+                                            <input type="text" class="form-control" id="phoneCreate">
+                                        </div>
+                                        <div id="phoneCreateError" class="createError col-sm-10 col-md-12"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="DOBCreate">Date of Birth</label>
+                                        <div class="col-sm-10 col-md-12">
+                                            <input type="date" class="form-control" id="DOBCreate">
+                                        </div>
+                                        <div id="DOBCreateError" class="createError col-sm-10 col-md-12"></div>
+                                    </div>
+                                    <button type="button" id="createBtn" class="btn btn-primary">Add Address</button>
+                                  </form>
+                            </div>
+                            <!--Search Page-->
+                            <div class="tab-pane fade" id="nav-search" role="tabpanel" aria-labelledby="nav-search-tab">
+                                <form id="searchForm">
+                                    <label for="searchChoice">What would you like to search?</label>
+                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                        <label class="btn btn-secondary active">
+                                        <input type="radio" name="options" id="nameRadio" autocomplete="off" checked> Name
+                                        </label>
+                                        <label class="btn btn-secondary">
+                                        <input type="radio" name="options" id="addressRadio" autocomplete="off"> Address
+                                        </label>
+                                        <label class="btn btn-secondary">
+                                        <input type="radio" name="options" id="phoneRadio" autocomplete="off"> Phone
+                                        </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label id="searchLabel" for="searchInput">Enter name to search</label>
+                                        <div class="col-sm-10 col-md-12">
+                                            <input type="text" class="form-control" id="searchInput" required>
+                                        </div>
+                                    </div>
+                                    <button type="submit" id="searchBtn" class="btn btn-primary">Search</button>
+                                </form>
+                            </div>
+                            <!--Update Page-->
+                            <div class="tab-pane fade" id="nav-update" role="tabpanel" aria-labelledby="nav-update-tab">
+                                <div id="updateForm">
+                                    <h2 id = "updateHeading"></h2>
+                                    <form>
+                                        <div class="form-group">
+                                        <label for="nameUpdate">Name</label>
+                                        <div class="col-sm-10 col-md-12">
+                                            <input type="text" class="form-control" id="nameUpdate">
+                                            <div id="nameUpdateError" class="createError col-sm-10 col-md-12"></div>
+                                        </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="addressUpdate">Address</label>
+                                            <div class="col-sm-10 col-md-12">
+                                                <input type="text" class="form-control" id="addressUpdate">
+                                                <div id="addressUpdateError" class="createError col-sm-10 col-md-12"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="phoneUpdate">Phone</label>
+                                            <div class="col-sm-10 col-md-12">    
+                                                <input type="text" class="form-control" id="phoneUpdate">
+                                                <div id="phoneUpdateError" class="createError col-sm-10 col-md-12"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="DOBUpdate">Date of Birth</label>
+                                            <div class="col-sm-10 col-md-12">
+                                                <input type="date" class="form-control" id="DOBUpdate">
+                                                <div id="DOBUpdateError" class="createError col-sm-10 col-md-12"></div>
+                                            </div>
+                                        </div>
+                                        <button type="button" id="updateBtn" class="btn btn-primary">Update Address</button>
+                                    </form>
+                                </div>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-7 col-xl-8">
+                        <div class="jamesTable border padding" style="overflow-x:auto;">
+                            <table id="myTable" class="table border">
+                                <thead>
+                                <tr>
+                                    <th onclick="sortTable(0)" scope="col">Name</th>
+                                    <th onclick="sortTable(1)" scope="col">Address</th>
+                                    <th onclick="sortTable(2)"" scope="col">Phone</th>
+                                    <th onclick="sortTable(3)" scope="col">Date Of Birth</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>                            
+                        </div>
+                        <button id="findAllBtn" class="findAll">Show All Addresses</button>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-4">
+        </main>
+        <footer>
+        </footer>
+        
+    </body>
+</html>
